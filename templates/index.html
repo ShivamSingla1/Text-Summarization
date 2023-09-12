@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #333333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea, input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333333;
+        }
+
+        pre {
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Summarizer</h1>
+        <form action="/summarize" method="POST">
+            <label for="input_text">Enter your text:</label><br>
+            <textarea id="input_text" name="input_text" rows="15" cols="50" style="resize: none;" >{{ input_text }}</textarea><br>
+            <label for="lines">Number of lines in summary:</label><br>
+            <input type="number" id="lines" name="lines" min="1" value="{{ lines }}"><br>
+            <input type="submit" value="Summarize">
+        </form>
+        <h2>Summary:</h2>
+        <pre>{{ summarized_text }}</pre>
+    </div>
+</body>
+</html>
